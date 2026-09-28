@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light Theme (matching clean reference screenshots) */
+  --bg-app: #F8FAFD;
+  --bg-rail: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8FAFC;
+  --bg-subtle: #F1F5F9;
+  --bg-input: #F8FAFC;
+
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+
+  --border-light: #E8EEF5;
+  --border-subtle: #F1F5F9;
+  --border-focus: #4F46E5;
+
+  /* Primary Accent & Brand */
+  --primary: #4F46E5;
+  --primary-light: #EEF2FF;
+  --primary-hover: #4338CA;
+
+  /* Category colors from screenshot */
+  --cat-todo: #EF4444;
+  --cat-todo-bg: #FEF2F2;
+  --cat-inprog: #3B82F6;
+  --cat-inprog-bg: #EFF6FF;
+  --cat-review: #F59E0B;
+  --cat-review-bg: #FFFBEB;
+  --cat-done: #10B981;
+  --cat-done-bg: #ECFDF5;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 4px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-card-hover: 0 10px 25px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  --shadow-modal: 0 20px 40px -8px rgba(15, 23, 42, 0.16);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme */
+  --bg-app: #0B0F19;
+  --bg-rail: #0E1422;
+  --bg-sidebar: #111827;
+  --bg-card: #162032;
+  --bg-card-hover: #1B273D;
+  --bg-subtle: #1C283F;
+  --bg-input: #121B2B;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  --border-focus: #6366F1;
+
+  --primary: #6366F1;
+  --primary-light: rgba(99, 102, 241, 0.15);
+  --primary-hover: #818CF8;
+
+  --cat-todo: #F87171;
+  --cat-todo-bg: rgba(239, 68, 68, 0.15);
+  --cat-inprog: #60A5FA;
+  --cat-inprog-bg: rgba(59, 130, 246, 0.15);
+  --cat-review: #FBBF24;
+  --cat-review-bg: rgba(245, 158, 11, 0.15);
+  --cat-done: #34D399;
+  --cat-done-bg: rgba(16, 185, 129, 0.15);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 12px 28px -4px rgba(0, 0, 0, 0.6);
+  --shadow-modal: 0 20px 40px -8px rgba(0, 0, 0, 0.8);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 9999px;
+  opacity: 0.25;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
